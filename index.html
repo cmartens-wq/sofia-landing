@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sofía – Asesora Inteligente de Yuyay</title>
+
+  <style>
+    :root {
+      --accent-teal: #41e1c3;
+      --accent-blue: #4974f5;
+      --bg-main: #000000;
+      --text-soft: #b6b6b6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-main);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* MAIN LAYOUT */
+    .page-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 48px;
+    }
+
+    /* LEFT COLUMN */
+    .left {
+      width: 50%;
+      max-width: 540px;
+    }
+
+    .logo-top {
+      width: 70px;
+      margin-bottom: 18px;
+    }
+
+    .left h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      background: linear-gradient(180deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .left h2 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-top: 0;
+      color: #d8d8d8;
+    }
+
+    .left p {
+      color: var(--text-soft);
+      font-size: 16px;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .feature-title {
+      margin-top: 40px;
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: #ffffff;
+      border-left: 4px solid var(--accent-teal);
+      padding-left: 10px;
+    }
+
+    .left-footer {
+      margin-top: 60px;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    /* RIGHT COLUMN */
+    .right {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-aura {
+      position: relative;
+    }
+
+    /* Glow around phone */
+    .phone-aura::before {
+      content: "";
+      position: absolute;
+      inset: -50px;
+      border-radius: 70px;
+      background: radial-gradient(
+        circle,
+        rgba(0, 255, 255, 0.22),
+        rgba(0, 0, 0, 0) 70%
+      );
+      filter: blur(55px);
+      z-index: -1;
+    }
+
+    /* Outer phone body */
+    .phone-frame {
+      width: 500px;
+      height: 960px;
+      background: #050607;
+      border-radius: 46px;
+      border: 2px solid #20242c;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 0 25px rgba(0, 255, 255, 0.18),
+        0 0 55px rgba(0, 150, 255, 0.25),
+        0 0 120px rgba(0, 200, 255, 0.40);
+    }
+
+    /* Notch */
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      box-shadow: 0 0 0 2px #050607;
+      z-index: 5;
+    }
+
+    /* Inner screen */
+    .phone-screen {
+      position: absolute;
+      top: 26px;
+      left: 18px;
+      right: 18px;
+      bottom: 24px;
+      background: #000000;
+      border-radius: 34px;
+      overflow: hidden;
+    }
+
+    /* Bot area fills the screen */
+    .embed-area {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      overflow-y: auto;
+    }
+
+    /* Simple scrollbar styling (optional) */
+    .embed-area::-webkit-scrollbar {
+      width: 6px;
+    }
+    .embed-area::-webkit-scrollbar-thumb {
+      background: #303030;
+      border-radius: 3px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .page-wrapper {
+        padding-top: 24px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .right {
+        justify-content: center;
+      }
+
+      .phone-frame {
+        width: 100%;
+        max-width: 420px;
+        height: 780px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .left h1 {
+        font-size: 32px;
+      }
+
+      .left h2 {
+        font-size: 20px;
+      }
+
+      .phone-frame {
+        max-width: 360px;
+        height: 700px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- LEFT COLUMN -->
+      <div class="left">
+        <!-- You can replace this URL with a local /assets/logo-yuyay.png if you prefer -->
+        <img
+          class="logo-top"
+          src="assets/logo-yuyay.png"
+          alt="Logo Yuyay"
+        />
+
+        <h1>Sofía – Asesora Inteligente de Yuyay</h1>
+        <h2>Entrevistas inteligentes para conocer tu negocio</h2>
+
+        <p>
+          Sofía es una agente conversacional consultiva creada por
+          <strong>Yuyay</strong>. Su función es entrevistar a responsables
+          de departamentos para comprender a fondo sus procesos, retos y
+          oportunidades de mejora. A partir de esa información, identifica
+          necesidades clave y sugiere cómo la IA puede potenciar el negocio.
+        </p>
+
+        <div class="feature-title">CONVERSACIÓN NATURAL</div>
+        <p>Interacción guiada, fluida y contextual con el cliente.</p>
+
+        <div class="feature-title">ANÁLISIS INTELIGENTE</div>
+        <p>Detecta brechas de información, profundiza y construye comprensión real del negocio.</p>
+
+        <div class="feature-title">PROPUESTAS DE VALOR</div>
+        <p>Genera un resumen de insights y una posible ruta de soluciones de IA.</p>
+
+        <p class="left-footer">Agentes conversacionales desarrollados por Yuyay</p>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right">
+        <div class="phone-aura">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+
+            <div class="phone-screen">
+              <div class="embed-area">
+                <!-- Sofía – Pickaxe embed -->
+                <div id="deployment-785be515-e718-41f9-a132-85f7e97bfdce"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PICKAXE SCRIPT -->
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+</body>
+</html>
+
