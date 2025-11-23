@@ -123,7 +123,7 @@
     .phone-aura {
       position: relative;
       width: 100%;
-      max-width: 440px;
+      max-width: 440px; /* más ancho */
     }
 
     .phone-aura::before {
@@ -142,8 +142,7 @@
 
     .phone-frame {
       width: 100%;
-      max-width: 440px;
-      /* SIN altura fija aquí; que crezca con el contenido */
+      max-width: 440px; /* más ancho */
       background: #050607;
       border-radius: 34px;
       border: 2px solid #20242c;
@@ -169,8 +168,8 @@
     }
 
     .phone-screen {
-      /* Altura fija generosa para el chat */
-      height: 960px;
+      /* MÁS alta en desktop para que entren los 3 icebreakers + prompt */
+      height: 1020px;
       background: #000000;
       border-radius: 26px;
       overflow: hidden;
@@ -190,7 +189,7 @@
       height: 100%;
     }
 
-    /* Asegurar que el iframe llenará la pantalla del “teléfono” */
+    /* Asegurar que el iframe llena la pantalla del “teléfono” */
     .embed-area iframe {
       width: 100% !important;
       height: 100% !important;
@@ -212,7 +211,7 @@
       }
 
       .right {
-        order: -1; /* Teléfono primero en móvil; quita esto si prefieres texto primero */
+        order: -1; /* Teléfono primero en móvil */
       }
 
       .phone-aura {
@@ -227,9 +226,9 @@
         font-size: 20px;
       }
 
-      /* En pantallas más pequeñas bajamos un poco la altura */
+      /* Más alto también en tablets/móviles grandes */
       .phone-screen {
-        height: 820px;
+        height: 900px;
       }
     }
 
@@ -241,7 +240,8 @@
 
       .phone-screen {
         border-radius: 22px;
-        height: 760px;
+        /* Más alto en móviles pequeños */
+        height: 860px;
       }
 
       .left p {
