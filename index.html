@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Sofía – Asesora Inteligente de Yuyay</title>
 
-  <!-- Important for mobile rendering -->
+  <!-- Importante para móviles -->
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
@@ -58,7 +58,7 @@
       min-width: 0;
     }
 
-    /* LEFT COLUMN */
+    /* COLUMNA IZQUIERDA */
     .left {
       max-width: 540px;
       display: flex;
@@ -113,7 +113,7 @@
       padding-top: 24px;
     }
 
-    /* RIGHT COLUMN */
+    /* COLUMNA DERECHA – TELÉFONO */
     .right {
       display: flex;
       align-items: center;
@@ -142,13 +142,13 @@
 
     .phone-frame {
       width: 100%;
-      /* Keep a phone-like shape on all screens */
-      aspect-ratio: 9 / 16;
+      max-width: 380px;
+      /* SIN altura fija aquí; que crezca con el contenido */
       background: #050607;
       border-radius: 34px;
       border: 2px solid #20242c;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       box-shadow:
         0 0 25px rgba(0, 255, 255, 0.18),
         0 0 55px rgba(0, 150, 255, 0.25),
@@ -169,7 +169,8 @@
     }
 
     .phone-screen {
-      flex: 1;
+      /* Altura fija generosa para el chat */
+      height: 720px;
       background: #000000;
       border-radius: 26px;
       overflow: hidden;
@@ -189,6 +190,14 @@
       height: 100%;
     }
 
+    /* Asegurar que el iframe llenará la pantalla del “teléfono” */
+    .embed-area iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: none;
+      display: block;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       body {
@@ -203,7 +212,7 @@
       }
 
       .right {
-        order: -1; /* Show phone first on mobile; remove if you prefer text first */
+        order: -1; /* Teléfono primero en móvil; quita esto si prefieres texto primero */
       }
 
       .phone-aura {
@@ -217,6 +226,11 @@
       .left h2 {
         font-size: 20px;
       }
+
+      /* En pantallas más pequeñas bajamos un poco la altura */
+      .phone-screen {
+        height: 640px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -227,6 +241,7 @@
 
       .phone-screen {
         border-radius: 22px;
+        height: 620px;
       }
 
       .left p {
@@ -239,7 +254,7 @@
 <body>
   <div class="page">
     <div class="content">
-      <!-- RIGHT (PHONE) in DOM earlier for better mobile UX if needed -->
+      <!-- COLUMNA DERECHA: TELÉFONO -->
       <div class="right">
         <div class="phone-aura">
           <div class="phone-frame">
@@ -254,7 +269,7 @@
         </div>
       </div>
 
-      <!-- LEFT COLUMN -->
+      <!-- COLUMNA IZQUIERDA -->
       <div class="left">
         <img
           class="logo-top"
@@ -292,7 +307,7 @@
     </div>
   </div>
 
-  <!-- PICKAXE SCRIPT -->
+  <!-- SCRIPT DE PICKAXE -->
   <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
 </body>
 </html>
